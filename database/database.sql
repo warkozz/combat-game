@@ -1,3 +1,4 @@
+-- Moved to database
 CREATE DATABASE combat_game;
 
 USE combat_game;

@@ -1,4 +1,5 @@
 <?php
+// Moved to back-end/config
 $host = 'localhost';
 $dbname = 'combat_game';
 $username = 'root';

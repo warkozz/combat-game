@@ -1,6 +1,6 @@
 <?php
-require_once 'config.php';
-require_once 'Game.php';
+require_once 'config/config.php';
+require_once 'src/Game.php';
 
 $game = new Game($pdo);
 
@@ -46,4 +46,3 @@ try {
     http_response_code(500);
     echo json_encode(["error" => "Une erreur est survenue : " . $e->getMessage()]);
 }
-?>

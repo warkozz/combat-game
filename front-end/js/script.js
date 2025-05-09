@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('action', 'create');
 
         try {
-            const response = await fetch('src/index.php', {
+            const response = await fetch('/exo-php-level-up/combat-game/back-end/index.php', {
                 method: 'POST',
                 body: formData
             });
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function refreshCharacterList() {
         try {
-            const response = await fetch('src/index.php?action=stats');
+            const response = await fetch('/exo-php-level-up/combat-game/back-end/index.php?action=stats');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('id', id);
 
                 try {
-                    const response = await fetch('src/index.php', {
+                    const response = await fetch('/exo-php-level-up/combat-game/back-end/index.php', {
                         method: 'POST',
                         body: formData
                     });
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('id', id);
 
         try {
-            const response = await fetch('src/index.php', {
+            const response = await fetch('/exo-php-level-up/combat-game/back-end/index.php', {
                 method: 'POST',
                 body: formData
             });
