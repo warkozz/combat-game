@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Combat Game</h1>
+    </header>
+
+    <main>
+        <section id="create-character" class="card">
+            <h2>Créer un personnage</h2>
+            <form id="character-form">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="force">Force:</label>
+                <input type="number" id="force" name="force" required>
+
+                <label for="localisation">Localisation:</label>
+                <input type="text" id="localisation" name="localisation" required>
+
+                <label for="niveau">Niveau:</label>
+                <input type="number" id="niveau" name="niveau" required>
+
+                <label for="hp">HP:</label>
+                <input type="number" id="hp" name="hp" required>
+
+                <button type="submit">Créer</button>
+            </form>
+        </section>
+
+        <section id="characters" class="card">
+            <h2>Personnages créés</h2>
+            <div id="character-list"></div>
+        </section>
+
+        <section id="combat" class="card">
+            <h2>Simuler un combat</h2>
+            <form id="combat-form">
+                <label for="attaquant">Attaquant (index):</label>
+                <input type="number" id="attaquant" name="attaquant" required>
+
+                <label for="defenseur">Défenseur (index):</label>
+                <input type="number" id="defenseur" name="defenseur" required>
+
+                <button type="submit">Lancer le combat</button>
+            </form>
+        </section>
+
+        <section id="stats" class="card">
+            <h2>Statistiques</h2>
+            <button id="refresh-stats">Rafraîchir les statistiques</button>
+            <pre id="stats-output"></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Combat Game</p>
+    </footer>
+</body>
+</html>

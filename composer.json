@@ -1,0 +1,16 @@
+{
+    "name": "combat-game",
+    "description": "A simple combat game implemented in PHP using object-oriented principles.",
+    "type": "project",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CombatGame\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "license": "MIT"
+}
