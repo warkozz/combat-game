@@ -1,67 +1,156 @@
+/* Style général pour la page */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
     color: #333;
-    line-height: 1.6;
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
     text-align: center;
+    font-size: 1.5em;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card {
-    background: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    padding: 1.5rem;
-    width: 90%;
-    max-width: 500px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-form label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
+.card h2 {
+    margin-top: 0;
+    color: #007bff;
 }
 
-form input, form button {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-form button {
-    background: #333;
-    color: #fff;
-    cursor: pointer;
+button {
+    padding: 10px 15px;
     border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
 }
 
-form button:hover {
-    background: #555;
+button:hover {
+    background-color: #0056b3;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
+
+#create-character{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#hp{
+margin-bottom: 10px;
+}
+
+#edit-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#character-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.character-card h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.character-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.character-card button {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Style pour la popup */
+.popup {
+    display: block;
     position: fixed;
-    bottom: 0;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup-content label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.popup-content input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.popup-content button {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.popup-content button#close-popup {
+    background-color: #ccc;
+    color: #333;
+}
+
+.popup-content button#close-popup:hover {
+    background-color: #aaa;
 }

@@ -1,31 +1,31 @@
 <?php
+require_once 'config.php';
 
 class Game {
-    private $personnages = [];
+    private $pdo;
 
-    public function ajouterPersonnage(Personnage $personnage) {
-        $this->personnages[] = $personnage;
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
 
-    public function simulerCombat($attaquantIndex, $defenseurIndex) {
-        if (isset($this->personnages[$attaquantIndex]) && isset($this->personnages[$defenseurIndex])) {
-            $attaquant = $this->personnages[$attaquantIndex];
-            $defenseur = $this->personnages[$defenseurIndex];
-
-            $degatsInfliges = $attaquant->frapper();
-            $defenseur->recevoirDegats($degatsInfliges);
-            $attaquant->gagnerExperience(10); // Gagner de l'expérience après un combat
-        } else {
-            throw new Exception("Personnage non trouvé.");
-        }
+    public function ajouterPersonnage($nom, $force, $localisation, $niveau, $hp) {
+        $stmt = $this->pdo->prepare("INSERT INTO personnages (nom, `force`, localisation, niveau, hp) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$nom, $force, $localisation, $niveau, $hp]);
     }
 
-    public function afficherStatistiques() {
-        foreach ($this->personnages as $index => $personnage) {
-            echo "Personnage " . ($index + 1) . ": Force: " . $personnage->getForce() . 
-                 ", Localisation: " . $personnage->getLocalisation() . 
-                 ", Expérience: " . $personnage->getExperience() . 
-                 ", Dégâts: " . $personnage->getDegats() . PHP_EOL;
-        }
+    public function getPersonnages() {
+        $stmt = $this->pdo->query("SELECT * FROM personnages");
+        return $stmt->fetchAll();
+    }
+
+    public function supprimerPersonnage($id) {
+        $stmt = $this->pdo->prepare("DELETE FROM personnages WHERE id = ?");
+        $stmt->execute([$id]);
+    }
+
+    public function modifierPersonnage($id, $nom, $force, $localisation, $niveau, $hp) {
+        $stmt = $this->pdo->prepare("UPDATE personnages SET nom = ?, `force` = ?, localisation = ?, niveau = ?, hp = ? WHERE id = ?");
+        $stmt->execute([$nom, $force, $localisation, $niveau, $hp, $id]);
     }
 }
+?>

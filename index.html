@@ -9,11 +9,11 @@
 </head>
 <body>
     <header>
-        <h1>Combat Game</h1>
+        <h1>Gestion des Personnages</h1>
     </header>
 
     <main>
-        <section id="create-character" class="card">
+        <section id="create-character" class="card" class="create-card">
             <h2>Créer un personnage</h2>
             <form id="character-form">
                 <label for="nom">Nom:</label>
@@ -36,32 +36,36 @@
         </section>
 
         <section id="characters" class="card">
-            <h2>Personnages créés</h2>
-            <div id="character-list"></div>
+            <h2>Liste des personnages</h2>
+            <div id="character-list">
+                <!-- Mes cartes ici -->
+            </div>
         </section>
 
-        <section id="combat" class="card">
-            <h2>Simuler un combat</h2>
-            <form id="combat-form">
-                <label for="attaquant">Attaquant (index):</label>
-                <input type="number" id="attaquant" name="attaquant" required>
+        <div id="edit-popup" class="popup hidden">
+            <div class="popup-content">
+                <h2>Modifier le personnage</h2>
+                <form id="edit-form">
+                    <label for="edit-nom">Nom:</label>
+                    <input type="text" id="edit-nom" name="nom" required>
 
-                <label for="defenseur">Défenseur (index):</label>
-                <input type="number" id="defenseur" name="defenseur" required>
+                    <label for="edit-force">Force:</label>
+                    <input type="number" id="edit-force" name="force" required>
 
-                <button type="submit">Lancer le combat</button>
-            </form>
-        </section>
+                    <label for="edit-localisation">Localisation:</label>
+                    <input type="text" id="edit-localisation" name="localisation" required>
 
-        <section id="stats" class="card">
-            <h2>Statistiques</h2>
-            <button id="refresh-stats">Rafraîchir les statistiques</button>
-            <pre id="stats-output"></pre>
-        </section>
+                    <label for="edit-niveau">Niveau:</label>
+                    <input type="number" id="edit-niveau" name="niveau" required>
+
+                    <label for="edit-hp">HP:</label>
+                    <input type="number" id="edit-hp" name="hp" required>
+
+                    <button type="submit">Enregistrer</button>
+                    <button type="button" id="close-popup">Annuler</button>
+                </form>
+            </div>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2023 Combat Game</p>
-    </footer>
 </body>
 </html>
